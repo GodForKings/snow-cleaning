@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Уборка снега в Красноярске
 
-## Getting Started
+![Badge](https://img.shields.io/badge/Next.js-16.0.3-black) ![Badge](https://img.shields.io/badge/TypeScript-5-blue) ![Badge](https://img.shields.io/badge/TailwindCSS-4-green) ![Badge](https://img.shields.io/badge/Deploy-Vercel/VPS-orange)
 
-First, run the development server:
+## Описание
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Веб-приложение для услуг ручной и механической уборки снега в частном секторе Красноярска.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Технически**: Responsive дизайн, dark/light mode (авто по теме телефона).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Статус: Разработка (frontend на Next 16 + TS + Tailwind + ReUI; backend на Node.js + Express).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Технологический стек
 
-## Learn More
+- **Frontend**: Next.js 16, React 19 (обновить до 18 для стабильности), TypeScript 5
+- **Стили**: TailwindCSS 4, tw-animate-css, globals.css с dark mode
+- **Компоненты**: ReUI (@base-ui-components), Radix UI, Lucide icons, React Hook Form, TanStack Table
+- **Инструменты**: ESLint 9, Prettier, Zod
+- **Deploy**: Frontend на VPS, backend на Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## Установка
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Клонируй репозиторий: `git clone 'this url'`
+2. Установи зависимости: `npm install`
+3. Настрой env: Создай `.env` с переменными (NEXT_PUBLIC_MAIN_URL)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Запуск
 
-## Deploy on Vercel
+- Разработка: `npm run dev`
+- Build: `npm run build`
+- Start: `npm run start`
+- Lint: `npm run lint`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend**: VPS
+- **Backend**: Vercel — deploy Express API для заказов
+- **CI/CD**: _GitHub Actions_
+
+## Roadmap
+
+- Интеграция backend API
+- Калькулятор цены (React Day Picker для дат)
+- Админ-панель с таблицами (TanStack) и drag-n-drop
+
+## Лицензия
+
+MIT — свободно используй, но attribution appreciated
