@@ -8,7 +8,7 @@ import { WorkArea } from './WorkArea'
 
 export const Contacts: FC = () => {
 	return (
-		<section className={cn('w-full', 'flex flex-col gap-4')} aria-label=''>
+		<section className={cn('w-full overflow-hidden', 'flex flex-col gap-4')} aria-label=''>
 			{/* Информация о компании */}
 			<CompanyInfo />
 

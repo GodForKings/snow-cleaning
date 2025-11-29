@@ -24,7 +24,7 @@ export const CompanyInfo: FC = () => {
 						'Пишите или звоните - всегда отвечаем и приезжаем быстро',
 					]}
 					otherProps={{
-						className: 'text-xl leading-relaxed text-gray-800 dark:text-gray-200',
+						className: 'text-xl leading-relaxed text-gray-800 dark:text-gray-200 h-26 lg:h-fit',
 						showCursor: false,
 						speed: 60,
 					}}

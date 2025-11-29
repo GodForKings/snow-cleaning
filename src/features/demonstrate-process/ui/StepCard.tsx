@@ -21,7 +21,7 @@ export const StepCard: FC<StepCardProps> = props => {
 			viewport={{ once: true }}
 		>
 			<Card variant='default' className='h-full p-4'>
-				<CardHeader className='flex'>
+				<CardHeader className={cn('flex flex-nowrap items-center justify-evenly', 'px-0 pb-2')}>
 					<div className={cn('size-12 rounded-xl border', 'flex items-center justify-center')}>
 						{<Icon className='text-primary size-8' strokeWidth={1.4} />}
 					</div>
@@ -29,7 +29,7 @@ export const StepCard: FC<StepCardProps> = props => {
 					<CardTitle className=''>{title}</CardTitle>
 				</CardHeader>
 
-				<CardContent>{text}</CardContent>
+				<CardContent className='max-md:p-2'>{text}</CardContent>
 			</Card>
 		</motion.div>
 	)

@@ -11,7 +11,7 @@ export const Header: FC = () => {
 			className={cn('flex items-center justify-between', 'sticky top-0 z-50 w-full px-6 py-2')}
 		>
 			<Link href={PAGES.HOME}>
-				<Image priority={true} src='/shovel.svg' alt='Логотип компании' width={40} height={40} />
+				<Image priority={true} src='/shovel.svg' alt='Логотип компании' width={36} height={60} />
 			</Link>
 
 			<NavMenu menuItems={NAV_MENU} />
