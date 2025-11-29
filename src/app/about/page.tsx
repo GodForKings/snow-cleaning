@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 		type: 'article',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_MAIN_URL}/cleanCourtyard.png`,
+				url: `${process.env.NEXT_PUBLIC_MAIN_URL}/images/cleanCourtyard.png`,
 				alt: 'Чистка снега в Красноярске - частный дом зимой',
 			},
 		],
@@ -40,7 +40,13 @@ const About: FC = () => {
 	return (
 		<>
 			<div className='fixed inset-0 -z-1'>
-				<Image src='/snowHouse.png' alt='Заснеженный дом' priority fill className='object-cover' />
+				<Image
+					src='/images/snowHouse.png'
+					alt='Заснеженный дом'
+					priority
+					fill
+					className='object-cover'
+				/>
 			</div>
 
 			<Wrapper ariaLabel='Контент о компании'>
@@ -62,7 +68,7 @@ const About: FC = () => {
 						name: 'Чистка снега в Красноярске',
 						description:
 							'Профессиональная уборка снега в Красноярске: ручная и механизированная чистка дворов, дорожек, крыш и парковок.',
-						image: `${process.env.NEXT_PUBLIC_MAIN_URL}/cleanCourtyard.png`,
+						image: `${process.env.NEXT_PUBLIC_MAIN_URL}/images/cleanCourtyard.png`,
 						url: `${process.env.NEXT_PUBLIC_MAIN_URL}/about`,
 						address: {
 							'@type': 'PostalAddress',

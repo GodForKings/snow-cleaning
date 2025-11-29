@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const baseUrl = process.env.NEXT_PUBLIC_MAIN_URL || 'https://уборкаснегакрасноярск.рф'
+	const baseUrl =
+		process.env.NEXT_PUBLIC_MAIN_URL || 'https://xn--80aaabll7aebyfdjshdhhdw2y.xn--p1ai'
 
 	return [
 		{
@@ -15,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			lastModified: new Date(),
 			changeFrequency: 'weekly',
 			priority: 0.8,
+		},
+		{
+			url: `${baseUrl}/contacts`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+			priority: 0.7,
 		},
 	]
 }

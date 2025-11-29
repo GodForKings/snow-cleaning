@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 		siteName: 'СнегOFF - уборка снега Красноярск',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_MAIN_URL}/cleanCourtyard.png`,
+				url: `${process.env.NEXT_PUBLIC_MAIN_URL}/images/cleanCourtyard.png`,
 				width: 1200,
 				height: 630,
 				alt: 'Уборка снега в Красноярске, наши работы.',
@@ -80,7 +80,7 @@ const RootLayout = ({
 	children: React.ReactNode
 }>) => {
 	return (
-		<html lang='ru'>
+		<html lang='ru' data-scroll-behavior='smooth'>
 			<body
 				className={cn(
 					'overflow-x-hidden text-base antialiased',

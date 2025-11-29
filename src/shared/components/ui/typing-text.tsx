@@ -10,6 +10,9 @@ import {
 } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 
+/**
+ * Типы предустановленных анимаций (пока не используются, но зарезервированы для расширения).
+ */
 type AnimationVariant =
 	| 'fadeIn'
 	| 'blurIn'
@@ -22,39 +25,97 @@ type AnimationVariant =
 	| 'scaleUp'
 	| 'scaleDown'
 
-interface TypingTextProps extends Omit<MotionProps, 'children'> {
-	/** Text to animate */
+/**
+ * Свойства компонента TypingText — анимированного текста с эффектом "печатания".
+ */
+export interface TypingTextProps extends Omit<MotionProps, 'children'> {
+	/**
+	 * Текст для анимации (если используется один текст)
+	 */
 	text?: string
-	/** Array of texts to cycle through */
+
+	/**
+	 * Массив текстов для циклической анимации (перебор по кругу)
+	 */
 	texts?: string[]
-	/** Typing speed in milliseconds */
+
+	/**
+	 * Скорость печати (в миллисекундах за символ)
+	 * @default 100
+	 */
 	speed?: number
-	/** Delay before starting animation */
+
+	/**
+	 * Задержка перед началом анимации
+	 * @default 0
+	 */
 	delay?: number
-	/** Whether to show cursor */
+
+	/**
+	 * Показывать ли мигающий курсор
+	 * @default true
+	 */
 	showCursor?: boolean
-	/** Cursor character */
+
+	/**
+	 * Символ курсора
+	 * @default '|'
+	 */
 	cursor?: string
-	/** Cursor className */
+
+	/**
+	 * Дополнительный className для курсора
+	 */
 	cursorClassName?: string
-	/** Whether to loop through texts */
+
+	/**
+	 * Запускать ли цикл анимации по кругу (если передан массив texts)
+	 * @default false
+	 */
 	loop?: boolean
-	/** Pause duration between loops */
+
+	/**
+	 * Пауза между циклами печати при loop
+	 * @default 2000
+	 */
 	pauseDuration?: number
-	/** Custom className */
+
+	/**
+	 * Кастомный className для контейнера
+	 */
 	className?: string
-	/** Callback when typing completes */
+
+	/**
+	 * Колбэк, вызываемый при завершении печати текста
+	 */
 	onComplete?: () => void
-	/** Whether to start animation when component enters viewport */
+
+	/**
+	 * Запускать анимацию только когда компонент попадает в зону видимости
+	 * @default true
+	 */
 	startOnView?: boolean
-	/** Whether to animate only once */
+
+	/**
+	 * Выполнить анимацию только один раз
+	 * @default false
+	 */
 	once?: boolean
-	/** The animation preset to use */
+
+	/**
+	 * Предустановленная анимация для расширения функционала (пока не используется)
+	 */
 	animation?: AnimationVariant
-	/** Margin for in-view detection (rootMargin) */
+
+	/**
+	 * Дополнительный отступ для триггера появления в области видимости
+	 */
 	inViewMargin?: UseInViewOptions['margin']
 }
 
+/**
+ * Варианты анимации мигающего курсора
+ */
 const cursorVariants: Variants = {
 	blinking: {
 		opacity: [0, 0, 1, 1],
@@ -68,6 +129,19 @@ const cursorVariants: Variants = {
 	},
 }
 
+/**
+ * Компонент TypingText —
+ * Анимирует отображение текста с эффектом "машинки" (постепенная печать символов),
+ * поддерживает:
+ * - одиночный текст
+ * - массив текстов с циклическим перебором
+ * - задержку перед началом
+ * - запуск при попадании в viewport
+ * - опциональный курсор
+ * - повторяющийся loop-анимационный цикл
+ *
+ * Подходит для заголовков, hero-блоков, баннеров, а также акцентов в UI.
+ */
 export function TypingText({
 	text,
 	texts,
@@ -86,19 +160,25 @@ export function TypingText({
 	...props
 }: TypingTextProps) {
 	const ref = useRef<HTMLSpanElement>(null)
+
+	// Проверяем, находится ли текст в зоне видимости
 	const isInView = useInView(ref, { once, margin: inViewMargin as UseInViewOptions['margin'] })
+
 	const [hasAnimated, setHasAnimated] = useState(false)
 	const [displayText, setDisplayText] = useState('')
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [isTyping, setIsTyping] = useState(false)
 	const [currentTextIndex, setCurrentTextIndex] = useState(0)
 
-	// Determine if we should start animation
+	// Определяем, должен ли компонент начать анимацию
 	const shouldStart = !startOnView || (isInView && (!once || !hasAnimated))
 
 	const textArray = texts && texts.length > 0 ? texts : [text]
 	const currentText = textArray[currentTextIndex] ?? ''
 
+	/**
+	 * Старт анимации после задержки
+	 */
 	useEffect(() => {
 		if (!shouldStart) return
 		const timeout = setTimeout(() => {
@@ -109,6 +189,9 @@ export function TypingText({
 		return () => clearTimeout(timeout)
 	}, [delay, shouldStart])
 
+	/**
+	 * Логика печатания текста
+	 */
 	useEffect(() => {
 		if (!isTyping) return
 
@@ -120,7 +203,7 @@ export function TypingText({
 
 			return () => clearTimeout(timeout)
 		} else {
-			// Typing complete
+			// Печать завершена
 			onComplete?.()
 
 			if (loop && texts && texts.length > 1) {
@@ -135,7 +218,9 @@ export function TypingText({
 		}
 	}, [currentIndex, currentText, isTyping, speed, loop, texts, pauseDuration, onComplete])
 
-	// Animation variants for container (fadeIn by default, extendable)
+	/**
+	 * Базовые анимации для появления контейнера
+	 */
 	const finalVariants = {
 		container: {
 			hidden: { opacity: 0, y: 10 },
@@ -143,6 +228,7 @@ export function TypingText({
 			exit: { opacity: 0 },
 		},
 	}
+
 	const MotionComponent = motion.span
 
 	return (
@@ -159,6 +245,7 @@ export function TypingText({
 		>
 			<span style={{ display: 'inline-flex', alignItems: 'center' }}>
 				{displayText}
+
 				{showCursor && (
 					<motion.span
 						variants={cursorVariants}

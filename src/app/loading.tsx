@@ -1,5 +1,5 @@
-import { SkeletonPage } from '@/shared'
+import { SkeletonLoader } from '@/shared'
 
 export default function Loading() {
-	return <SkeletonPage />
+	return <SkeletonLoader />
 }

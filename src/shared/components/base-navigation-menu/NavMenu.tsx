@@ -61,8 +61,8 @@ export const NavMenu: FC<NavMenuProps> = props => {
 									<div className='text-lg font-medium'>Главная Страница</div>
 
 									<p className='text-muted-foreground text-sm leading-tight'>
-										Тут вы можете ознакомиться с процессом работы и получить ответы на самые частые
-										вопросы.
+										Тут вы можете ознакомиться с процессом работы, посмотреть примеры и получить
+										ответы на самые частые вопросы.
 									</p>
 								</NavigationMenuLink>
 							</li>

@@ -16,10 +16,20 @@ export const ShowDemo: FC = () => {
 			<CardContent className='p-0'>
 				<ResizableContent
 					beforeComponent={
-						<Image src='/beforeDemo.png' alt='Logo itdextra crypto' fill className='object-cover' />
+						<Image
+							src='/images/beforeDemo.png'
+							alt='Дом засыпанный снегом'
+							fill
+							className='object-cover'
+						/>
 					}
 					afterComponent={
-						<Image src='/afterDemo.png' alt='Logo itdextra crypto' fill className='object-cover' />
+						<Image
+							src='/images/afterDemo.png'
+							alt='Дом очищенный от снега'
+							fill
+							className='object-cover'
+						/>
 					}
 				/>
 			</CardContent>

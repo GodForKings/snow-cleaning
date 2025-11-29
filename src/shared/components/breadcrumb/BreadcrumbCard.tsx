@@ -4,13 +4,13 @@ import { PAGES, type IBreadcrumbItem } from '@/shared'
 import {
 	Breadcrumb,
 	BreadcrumbItem,
-	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from '@/shared/components/ui/breadcrumb'
 import { Card, CardContent } from '@/shared/components/ui/card'
 
+import Link from 'next/link'
 import type { FC } from 'react'
 
 interface BreadcrumbCardProps {
@@ -27,9 +27,9 @@ export const BreadcrumbCard: FC<BreadcrumbCardProps> = props => {
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem>
-							<BreadcrumbLink href={PAGES.HOME}>
+							<Link href={PAGES.HOME}>
 								<Home className='size-4' />
-							</BreadcrumbLink>
+							</Link>
 						</BreadcrumbItem>
 
 						{listBreadcrumb?.map((item, index) => (
@@ -42,7 +42,7 @@ export const BreadcrumbCard: FC<BreadcrumbCardProps> = props => {
 									</BreadcrumbItem>
 								) : (
 									<BreadcrumbItem>
-										<BreadcrumbLink href={item.href}>{item?.icon || item.label}</BreadcrumbLink>
+										<Link href={item.href}>{item?.icon || item.label}</Link>
 									</BreadcrumbItem>
 								)}
 							</ul>

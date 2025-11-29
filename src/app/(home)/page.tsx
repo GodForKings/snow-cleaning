@@ -9,13 +9,15 @@ export default function Home() {
 	return (
 		<>
 			{/* Фоновое изображение */}
-			<Image
-				src='/cleanCourtyard.png'
-				alt='Заснеженный дом'
-				fill
-				priority
-				className='object-cover'
-			/>
+			<div className='absolute inset-0 -z-1 h-screen w-full'>
+				<Image
+					src='/images/cleanCourtyard.png'
+					alt='Заснеженный дом'
+					fill
+					priority
+					className='object-cover'
+				/>
+			</div>
 
 			<Wrapper ariaLabel='Уборка снега Красноярск контент'>
 				<Hero />
@@ -37,7 +39,7 @@ export default function Home() {
 						name: 'уборкаснегакрасноярск.рф - уборка снега в Красноярске',
 						description:
 							'Профессиональная уборка снега в Красноярске: ручная и механизированная чистка участков, крыш и вывоз снега.',
-						image: `${process.env.NEXT_PUBLIC_MAIN_URL}/cleanCourtyard.png`,
+						image: `${process.env.NEXT_PUBLIC_MAIN_URL}/images/cleanCourtyard.png`,
 						url: process.env.NEXT_PUBLIC_MAIN_URL,
 						telephone: CONTACT_FOR_ORDER.Phone,
 						address: {

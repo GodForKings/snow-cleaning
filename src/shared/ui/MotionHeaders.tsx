@@ -13,6 +13,7 @@ export const DefaultHeaderH2: FC<DefaultHeaderProps> = props => {
 
 	return (
 		<motion.h2
+			itemProp='headline'
 			initial={{ opacity: 0, x: 30, filter: 'blur(4px)' }}
 			whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
 			transition={{ duration: 0.6 }}
@@ -32,6 +33,7 @@ export const DefaultHeaderH1: FC<DefaultHeaderProps> = props => {
 			viewport={{ once: true }}
 			transition={{ duration: 0.6, delay: 0.3, ease: 'linear' }}
 			className={cn('text-accent text-center text-3xl font-medium md:text-5xl', className)}
+			itemProp='headline'
 		>
 			{children}
 		</motion.h1>

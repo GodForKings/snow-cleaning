@@ -29,7 +29,9 @@ export const Hero: FC = () => {
 
 				<LoopTypingText
 					texts={HeroText}
-					classNameText='leading-relaxed text-accent/95 md:text-4xl'
+					otherProps={{
+						className: `leading-relaxed text-accent text-xl md:text-4xl`,
+					}}
 				/>
 
 				<motion.a

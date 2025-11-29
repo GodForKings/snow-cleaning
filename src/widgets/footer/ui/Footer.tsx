@@ -7,7 +7,7 @@ import type { FC } from 'react'
 
 export const Footer: FC = () => {
 	return (
-		<footer className={cn('border-border/50 border-t', 'bg-accent w-full')}>
+		<footer className={cn('border-border border-t', 'bg-accent w-full')}>
 			<div className={cn('grid gap-8 md:grid-cols-3', 'container px-5 py-10')}>
 				{/* Column 1 */}
 				<ColWrap>
