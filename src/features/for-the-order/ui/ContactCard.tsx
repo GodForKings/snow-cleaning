@@ -19,7 +19,7 @@ export const ContactCard: FC<ContactCardProps> = props => {
 		<motion.div
 			initial={{ x: 30 }}
 			whileInView={{ x: 0 }}
-			whileHover={{ scale: 1.03 }}
+			whileHover={{ scale: 0.98 }}
 			transition={{ duration: 0.2 }}
 			className={cn(
 				'rounded-3xl bg-white/40 p-6 backdrop-blur-lg dark:bg-neutral-900/40',
