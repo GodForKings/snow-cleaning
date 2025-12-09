@@ -54,26 +54,10 @@ export default defineConfig([
 				{
 					groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'type'],
 					pathGroups: [
-						{
-							pattern: '@/components/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@/hooks/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@/utils/**',
-							group: 'internal',
-							position: 'after',
-						},
-						{
-							pattern: '@/types/**',
-							group: 'type',
-							position: 'after',
-						},
+						{ pattern: '@/features/**', group: 'internal', position: 'after' },
+						{ pattern: '@/shared/**', group: 'internal', position: 'after' },
+						{ pattern: '@/widgets/**', group: 'internal', position: 'after' },
+						{ pattern: '@/entities/**', group: 'type', position: 'after' },
 					],
 					pathGroupsExcludedImportTypes: ['type'],
 					'newlines-between': 'always',
